@@ -261,36 +261,36 @@
     <form action="#">
       <div class="input-box">
             <div class="input-field">
-                <input type="text" placeholder="full Name" required>
-                <span class="focus"></span>
+                <label for="name"></label><br>
+                <input id="name"type="text"placeholder="full name">  
             </div>
 
             <div class="input-field">
-                <input type="text" placeholder="Email" required>
-                <span class="focus"></span>
+                <label for="email"></label><br>
+                <input id="email"type="email"placeholder="Email">
             </div>
        </div> 
 
-
        <div class="input-box">
         <div class="input-field">
-            <input type="number" placeholder="Mobile Number" required>
-            <span class="focus"></span>
+            <label for="number"></label>
+            <input type="number" placeholder="mobile number">    
         </div>
 
         <div class="input-field">
-            <input type="text" placeholder="Email Subject" required>
-            <span class="focus"></span>
+            <label for="Subject"></label>
+            <input type="text" placeholder="Subject">
         </div>
        </div>
 
         <div class="textarea-field">
-           <textarea name="" id="" cols="30" rows="10" aria-placeholder="Your Message" required></textarea> 
-            <span class="focus"></span>
+           <label for="message">your message</label><br>
+                <textarea name=""id="message" cols="30" rows="10"placeholder="your message"></textarea>
         </div>
    
         <div class="btn-box">
-            <button type="submit" class="btn">Submit</button>
+            <button onclick="sendToWhatsapp()" class="btn">Submit</button>
+           
         </div>
        </div>
        
@@ -330,6 +330,22 @@
             });
         });
     });
+
+
+    function sendToWhatsapp(){
+    let number="0713560794";
+
+    let name=document.getElementById('name').value;
+    let email=document.getElementById('email').value;
+    let messge=document.getElementById('message').value;
+
+    var url="https://wa.me/" +number+"?text="
+    +"Name :" +name+ "%0a"
+    +"Email :" +email+ "%0a"
+    +"Message :" +messge+ "%0a%0a";
+
+    window.open(url,'_blank').focus();
+}
 </script>
 
 
